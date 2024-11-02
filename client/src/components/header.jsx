@@ -17,9 +17,6 @@ const startOfTodayUnix = Math.floor(startOfToday.getTime() / 1000);
 const Header = () => {
 
   const apiKEY = import.meta.env.VITE_API_KEY;
-  const apiKEY2="5593dfec-6916-4b15-96bf-a8e32b2bdc63";
-
-
     const { cityName, setCityName } = useContext(CityContext);
     const {airQualityRes,setAirQualityRes}=useContext(AirQualityContext);
     const {weatherRes,setWeatherRes}=useContext(WeatherContext);
