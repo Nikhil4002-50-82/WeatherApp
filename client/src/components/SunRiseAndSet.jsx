@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import { WeatherContext } from './context/weatherContext';
 
-import SunRiseAndSetComp from './sunRiseAndSetComp';
+import SunRiseAndSetComp from './SunRiseAndSetComp';
 
 import { BsFillSunriseFill } from "react-icons/bs";
 import { BsFillSunsetFill } from "react-icons/bs";
