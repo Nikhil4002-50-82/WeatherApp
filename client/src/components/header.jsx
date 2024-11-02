@@ -31,7 +31,7 @@ const Header = () => {
     useEffect(()=>{
       const getLatLon=async()=>{
         try{
-          const response=await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKEY}`);
+          const response=await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${apiKEY}`);
           const {lat,lon}=response.data[0];
           setLat(lat);
           setLon(lon);
@@ -51,7 +51,7 @@ const Header = () => {
     useEffect(()=>{
       const getAirQuality=async()=>{
         try{
-          const response=await axios.get(`http://api.openweathermap.org/data/2.5/air_pollution/history?lat=${lat}&lon=${lon}&start=${startOfTodayUnix}&end=${currentTime}&appid=${apiKEY}`);
+          const response=await axios.get(`https://api.openweathermap.org/data/2.5/air_pollution/history?lat=${lat}&lon=${lon}&start=${startOfTodayUnix}&end=${currentTime}&appid=${apiKEY}`);
           const {components}=response.data.list[0]
           setAirQualityRes(components);
         }
