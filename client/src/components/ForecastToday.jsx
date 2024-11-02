@@ -13,10 +13,14 @@ const ForecastToday = () => {
     const {forecastRes,setForecastRes}=useContext(ForecastContext);
 
     const d = new Date();
-    // const today = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
-    const today="2024-11-02"
-    console.log(today)
+    const date=d.getDate();
+    var curDate;
 
+    if(date===0 || date===1 ||date==2 || date===3 || date===4 || date===5 || date===6 || date===7 || date===8 || date===9) curDate="0"+date;
+    else curDate=date;
+    
+    const today = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+curDate;
+   
     function createComp(list){
          const timestamp=list.dt_txt;
          const temperature=((list.main.temp)-273.15).toFixed(2);

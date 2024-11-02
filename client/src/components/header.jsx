@@ -17,6 +17,8 @@ const startOfTodayUnix = Math.floor(startOfToday.getTime() / 1000);
 const Header = () => {
 
   const apiKEY = import.meta.env.VITE_API_KEY;
+  const apiKEY2="5593dfec-6916-4b15-96bf-a8e32b2bdc63";
+
 
     const { cityName, setCityName } = useContext(CityContext);
     const {airQualityRes,setAirQualityRes}=useContext(AirQualityContext);
@@ -24,7 +26,9 @@ const Header = () => {
     const {forecastRes,setForecastRes}=useContext(ForecastContext);
 
     const [searchBtn,setSearchBtn]=useState(false);
+    const [curLocBtn,setCurLocBtn]=useState(false);
 
+    const [ip,setIp]=useState("");
     const [lat,setLat]=useState("");
     const [lon,setLon]=useState("");
 
@@ -47,6 +51,29 @@ const Header = () => {
         getLatLon();
       }
     },[searchBtn]);
+
+    useEffect(()=>{
+      const getCurLatLon=async()=>{
+        try{
+          const response =await axios.get("http://ip-api.com/json/");
+          console.log(response.data)
+          setLat(response.data.lat);
+          setLon(response.data.lon);
+          setCityName(response.data.city)
+        }
+        catch(error){
+          console.log(`error message : ${error.message}`);
+        }
+        finally{
+          setCurLocBtn(false);
+        }
+      }
+
+      if(curLocBtn){
+        getCurLatLon();
+      }
+
+    },[curLocBtn]);
 
     useEffect(()=>{
       const getAirQuality=async()=>{
@@ -74,7 +101,6 @@ const Header = () => {
         try{
           const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKEY}`);
           setForecastRes(response.data);
-          console.log(response.data);
         }
         catch(error){
           console.log(`error message : ${error.message}`);
@@ -103,7 +129,10 @@ const Header = () => {
         <ul className="flex">
           <li className="ml-[0.3em]"><input type="text" className="h-[2.3em] w-[12em] px-3 pt-3 pb-3 bg-gray-800 rounded-2xl focus:outline-none" placeholder="Enter city name" onChange={handleChange}/></li>
           <li className="ml-[0.3em]"><button className="h-[2.3em] w-[5.3em] px-3 pl-2 pt-3 pb-3 flex justify-between items-center bg-white text-black rounded-2xl" onClick={handleClick}><IoSearchOutline className='text-3xl'/>Search</button></li>
-          <li className="ml-[0.3em]"><button className="h-[2.3em] w-[10em] px-3 pt-3 pb-3 flex justify-center items-center bg bg-orange-600 rounded-2xl"><span className='mr-2'><FaLocationCrosshairs /></span>Location</button></li>
+          <li className="ml-[0.3em]"><button className="h-[2.3em] w-[11em] px-0 py-3 flex justify-center items-center bg bg-orange-600 rounded-2xl" onClick={(event)=>{
+            event.preventDefault();
+            setCurLocBtn(true);
+          }}><span className='mr-2'><FaLocationCrosshairs /></span>Current Location</button></li>
         </ul>
       </header>
   )
