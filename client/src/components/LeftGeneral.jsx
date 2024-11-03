@@ -23,31 +23,31 @@ export default function LeftGeneral(){
 
     var icon;
     if(iconName==="Rain"){
-         icon=<IoRainy className="mr-6 text-gray-400  sm:text-3xl  xl:text-5xl" />;
+         icon=<IoRainy className="mr-6 text-gray-400 text-xl  sm:text-3xl  xl:text-5xl" />;
     }
     else if(iconName==="Thunderstorm"){
-        icon=<IoThunderstorm className="mr-6 text-gray-400  sm:text-3xl  xl:text-5xl" />;
+        icon=<IoThunderstorm className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;
     }
     else if(iconName==="Drizzle"){
-        icon=<BsCloudDrizzleFill className="mr-6 text-gray-400  sm:text-3xl  xl:text-5xl" />;
+        icon=<BsCloudDrizzleFill className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;
     }
     else if(iconName==="Snow"){
-        icon=<FaRegSnowflake className="mr-6 text-gray-400  sm:text-3xl  xl:text-5xl" />;
+        icon=<FaRegSnowflake className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;
     }
     else if(iconName==="Clouds"){
-        icon=<FaCloud className="mr-6 text-gray-400  sm:text-3xl  xl:text-5xl" />;
+        icon=<FaCloud className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;
     }
     else if(iconName==="Clear"){
-        icon=<IoMdPartlySunny className="mr-6 text-gray-400  sm:text-3xl  xl:text-5xl" />;
+        icon=<IoMdPartlySunny className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;
     }
     else{
-        icon=<BsCloudHaze2Fill className="mr-6 text-gray-400  sm:text-3xl  xl:text-5xl" />;
+        icon=<BsCloudHaze2Fill className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;
     }
 
     return(
         <div className='w-full bg-gray-800 py-4 p-[0.9em] flex flex-col rounded-2xl'>
             <p className="sm:text-md xl:text-lg">Now</p>
-            <div className="flex justify-between items-center  sm:text-2xl  xl:text-4xl ">
+            <div className="flex justify-between items-center text-2xl  sm:text-2xl  xl:text-4xl ">
                 {temperature}
                 {icon?icon:null}       
             </div>

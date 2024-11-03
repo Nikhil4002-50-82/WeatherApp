@@ -63,7 +63,7 @@ const DayForecast = () => {
 
   return (
     <div className='w-full bg-gray-800 py-4 p-[0.9em] flex flex-col rounded-2xl mt-5'>
-        <p className='sm:text-xl xl:text-3xl mb-3'>5 days Forecast</p>
+        <p className='text-lg mb-2 sm:text-xl xl:text-3xl sm:mb-3 xl:mb-3'>5 days Forecast</p>
         {forecastRes.list ? (
         forecastRes.list
           .filter(i => i.dt_txt.slice(11, 19) === "00:00:00") // Filter by time

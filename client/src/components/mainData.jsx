@@ -24,18 +24,18 @@ const MainData = () => {
   const feelsLike= weatherRes?.main?<p>{(weatherRes.main.feels_like-273.15).toFixed(2)}&deg;C</p>:null;
 
   return (
-    <div className='w-full grid grid-cols-[2fr_6fr]'>
-      <div className='p-[0.6em] pt-1 pr-0'>
+    <div className='w-full grid sm:grid-cols-[4fr_6fr] xl:grid-cols-[2fr_6fr]'>
+      <div className='p-[0.6em] pt-1 sm:pr-0 xl:pr-0'>
         <LeftGeneral />
         <DayForecast />
       </div>
       <div className='p-[0.6em] pt-0'>
         <h1 className="font-semibold mb-2  xl:text-xl">Today's Highlights</h1>
-        <div className='w-[100%] h-[auto]   sm:grid sm:grid-cols-2 sm:gap-4  xl:grid xl:grid-cols-4 xl:grid-rows-4 xl:gap-2'>
+        <div className='w-[100%] h-[auto] grid gap-3   sm:grid sm:grid-cols-2 sm:gap-4  xl:grid xl:grid-cols-4 xl:grid-rows-4 xl:gap-2'>
             <div className='col-span-2 xl:row-span-2 h-full'>
                 <AirQuality />
             </div>
-            <div className='sm:col-span-2  xl:col-span-2 xl:row-span-2 h-full'>
+            <div className=' col-span-2 xl:row-span-2 h-full'>
                 <SunRiseAndSet />
             </div>
             <div className='h-full'>
@@ -55,7 +55,7 @@ const MainData = () => {
             </div>
         </div>
         <h1 className="font-semibold my-2   xl:text-xl">Today at</h1>
-        <div className='text-gray-400 grid sm:grid-cols-4 xl:grid-cols-8 gap-2'>
+        <div className='text-gray-400 grid grid-cols-3 sm:grid-cols-4 xl:grid-cols-8 gap-2'>
             <ForecastToday />
         </div>
       </div>

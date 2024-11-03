@@ -3,7 +3,7 @@ import React from 'react';
 const SunRiseAndSetComp = ({Component,name,time,meridiem}) => {
   return (
     <div className='flex'>
-        <div className='flex items-center mr-3 pt-2 justify-center  sm:text-5xl xl:text-7xl '>
+        <div className='flex items-center mr-3 pt-2 justify-center text-4xl sm:text-5xl xl:text-7xl '>
             <Component />
         </div>
         <div className='flex flex-col'>

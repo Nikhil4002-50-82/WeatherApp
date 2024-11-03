@@ -52,7 +52,7 @@ const Header = () => {
     useEffect(()=>{
       const getCurLatLon=async()=>{
         try{
-          const response =await axios.get("http://localhost:5000/getCurrentLocation");
+          const response =await axios.get("https://weatherapp-2i72.onrender.com/getCurrentLocation");
           console.log(response.data.query);
           setLat(response.data.lat);
           setLon(response.data.lon);
@@ -120,14 +120,13 @@ const Header = () => {
         setSearchBtn(true);
         setValue("");
       }
-
   return (
-    <header className="w-[100%] h-[4em] p-[0.6em] z-10 flex justify-between items-center bg-gray-900">
-        <h1 className="font-semibold flex  sm:text-3xl  xl:text-4xl ">Weather<IoPlanetSharp /></h1>
-        <ul className="flex">
-          <li className="ml-[0.3em]"><input type="text" className="sm:h-[2em] w-[12em] px-3 pt-3 pb-3 bg-gray-800 rounded-2xl focus:outline-none   xl:h-[2.3em]" placeholder="Enter city name" onChange={handleChange} value={value}/></li>
-          <li className="ml-[0.3em]"><button className="sm:h-[2em] w-[5.3em] px-3 pl-2 pt-3 pb-3 flex justify-between items-center bg-white text-black rounded-2xl   xl:h-[2.3em]" onClick={handleClick}><IoSearchOutline className='text-3xl'/>Search</button></li>
-          <li className="ml-[0.3em]"><button className="sm:h-[2em] w-[11em] px-0 py-3 flex justify-center items-center bg bg-orange-600 rounded-2xl   xl:h-[2.3em]" onClick={(event)=>{
+    <header className="w-[100%] h-auto p-[0.6em] grid grid-rows-4 gap-2  sm:flex xl:flex sm:flex-row xl:flex-row sm:justify-between xl:justify-between sm:items-center xl:items-center bg-gray-900">
+        <h1 className=" font-semibold flex items-center justify-center text-2xl  sm:text-3xl  xl:text-4xl ">Weather<IoPlanetSharp /></h1>
+        <ul className=" row-span-3 flex flex-col gap-2 sm:flex-row sm:gap-0 xl:gap-0  xl:flex-row">
+          <li className="ml-[0.3em]"><input type="text" className="h-[2.5em] sm:h-[2em] w-full sm:w-[12em] xl:w-[12em] px-3 pt-3 pb-3 bg-gray-800 rounded-2xl focus:outline-none   xl:h-[2.3em]" placeholder="Enter city name" onChange={handleChange} value={value}/></li>
+          <li className="ml-[0.3em]"><button className="h-[2.5em] sm:h-[2em] w-full sm:w-[5.3em] xl:w-[5.3em] px-3 pl-2 pt-3 pb-3 flex justify-center sm:justify-between xl:justify-between items-center bg-white text-black rounded-2xl   xl:h-[2.3em]" onClick={handleClick}><IoSearchOutline className='text-3xl'/>Search</button></li>
+          <li className="ml-[0.3em]"><button className="h-[2.5em] sm:h-[2em] w-full sm:w-[11em] xl:w-[11em] px-0 py-3 flex justify-center items-center bg bg-orange-600 rounded-2xl   xl:h-[2.3em]" onClick={(event)=>{
             event.preventDefault();
             setCurLocBtn(true);
           }}><span className='mr-2'><FaLocationCrosshairs /></span>Current Location</button></li>

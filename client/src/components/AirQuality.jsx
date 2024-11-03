@@ -14,7 +14,7 @@ const AirQuality = () => {
         <h4 className='  sm:text-sm xl:text-md text-gray-400 mb-3 '>Air Quality Index</h4>
         <div className='grid grid-cols-4 xl:grid-rows-3'>
             <div className='flex flex-col justify-center items-center '>
-                <MdOutlineAir className=' sm:text-4xl xl:text-6xl ' />
+                <MdOutlineAir className='text-4xl sm:text-4xl xl:text-6xl ' />
             </div>
             {airQualityRes ?
             <>
