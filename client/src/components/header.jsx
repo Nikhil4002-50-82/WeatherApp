@@ -53,9 +53,10 @@ const Header = () => {
       const getCurLatLon=async()=>{
         try{
           const response =await axios.get("http://localhost:5000/getCurrentLocation");
+          console.log(response.data.query);
           setLat(response.data.lat);
           setLon(response.data.lon);
-          setCityName(response.data.city)
+          setCityName(response.data.city);
         }
         catch(error){
           console.log(`error message : ${error.message}`);
