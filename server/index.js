@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev'));
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the Express server!");
+});
+
 app.get("/getCurrentLocation",async(req,res)=>{
     try{
         const response =await axios.get("http://ip-api.com/json/");
