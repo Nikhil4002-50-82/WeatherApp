@@ -52,7 +52,7 @@ const Header = () => {
     useEffect(()=>{
       const getCurLatLon=async()=>{
         try{
-          const response =await axios.get("http://localhost:5000/getCurrentLocation");
+          const response =await axios.get("https://weatherapp-2i72.onrender.com/getCurrentLocation");
           console.log(response.data.query);
           setLat(response.data.lat);
           setLon(response.data.lon);
