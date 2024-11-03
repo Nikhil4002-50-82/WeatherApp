@@ -25,7 +25,7 @@ const Header = () => {
     const [searchBtn,setSearchBtn]=useState(false);
     const [curLocBtn,setCurLocBtn]=useState(false);
 
-    const [ip,setIp]=useState("");
+    const [value,setValue]=useState("");
     const [lat,setLat]=useState("");
     const [lon,setLon]=useState("");
 
@@ -52,8 +52,7 @@ const Header = () => {
     useEffect(()=>{
       const getCurLatLon=async()=>{
         try{
-          const response =await axios.get("http://ip-api.com/json/");
-          console.log(response.data)
+          const response =await axios.get("http://localhost:5000/getCurrentLocation");
           setLat(response.data.lat);
           setLon(response.data.lon);
           setCityName(response.data.city)
@@ -112,19 +111,20 @@ const Header = () => {
     },[lat,lon]);
 
     function handleChange(event){
-        setCityName(event.target.value);
+        setValue(event.target.value);
       }
     function handleClick(event){
         event.preventDefault();
-        console.log(cityName);
+        setCityName(value);
         setSearchBtn(true);
+        setValue("");
       }
 
   return (
     <header className="w-[100%] h-[4em] p-[0.6em] z-10 flex justify-between items-center bg-gray-900">
         <h1 className="text-4xl font-semibold flex">Weather<IoPlanetSharp /></h1>
         <ul className="flex">
-          <li className="ml-[0.3em]"><input type="text" className="h-[2.3em] w-[12em] px-3 pt-3 pb-3 bg-gray-800 rounded-2xl focus:outline-none" placeholder="Enter city name" onChange={handleChange}/></li>
+          <li className="ml-[0.3em]"><input type="text" className="h-[2.3em] w-[12em] px-3 pt-3 pb-3 bg-gray-800 rounded-2xl focus:outline-none" placeholder="Enter city name" onChange={handleChange} value={value}/></li>
           <li className="ml-[0.3em]"><button className="h-[2.3em] w-[5.3em] px-3 pl-2 pt-3 pb-3 flex justify-between items-center bg-white text-black rounded-2xl" onClick={handleClick}><IoSearchOutline className='text-3xl'/>Search</button></li>
           <li className="ml-[0.3em]"><button className="h-[2.3em] w-[11em] px-0 py-3 flex justify-center items-center bg bg-orange-600 rounded-2xl" onClick={(event)=>{
             event.preventDefault();
