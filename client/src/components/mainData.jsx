@@ -30,12 +30,12 @@ const MainData = () => {
         <DayForecast />
       </div>
       <div className='p-[0.6em] pt-0'>
-        <h1 className="text-xl font-semibold mb-2">Today's Highlights</h1>
-        <div className='w-[100%] h-[auto] grid grid-cols-4 grid-rows-4 gap-2'>
-            <div className='col-span-2 row-span-2 h-full'>
+        <h1 className="font-semibold mb-2  xl:text-xl">Today's Highlights</h1>
+        <div className='w-[100%] h-[auto]   sm:grid sm:grid-cols-2 sm:gap-4  xl:grid xl:grid-cols-4 xl:grid-rows-4 xl:gap-2'>
+            <div className='col-span-2 xl:row-span-2 h-full'>
                 <AirQuality />
             </div>
-            <div className='col-span-2 row-span-2 h-full'>
+            <div className='sm:col-span-2  xl:col-span-2 xl:row-span-2 h-full'>
                 <SunRiseAndSet />
             </div>
             <div className='h-full'>
@@ -54,8 +54,8 @@ const MainData = () => {
                 <OtherComponents name="Feels Like" value={feelsLike} Component={FaTemperatureHigh} />
             </div>
         </div>
-        <h1 className="text-xl font-semibold my-2">Today at</h1>
-        <div className='text-gray-400 grid grid-cols-8 gap-2'>
+        <h1 className="font-semibold my-2   xl:text-xl">Today at</h1>
+        <div className='text-gray-400 grid sm:grid-cols-4 xl:grid-cols-8 gap-2'>
             <ForecastToday />
         </div>
       </div>

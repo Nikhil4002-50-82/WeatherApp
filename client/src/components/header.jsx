@@ -52,7 +52,7 @@ const Header = () => {
     useEffect(()=>{
       const getCurLatLon=async()=>{
         try{
-          const response =await axios.get("https://weatherapp-2i72.onrender.com/getCurrentLocation");
+          const response =await axios.get("http://localhost:5000/getCurrentLocation");
           console.log(response.data.query);
           setLat(response.data.lat);
           setLon(response.data.lon);
@@ -123,11 +123,11 @@ const Header = () => {
 
   return (
     <header className="w-[100%] h-[4em] p-[0.6em] z-10 flex justify-between items-center bg-gray-900">
-        <h1 className="text-4xl font-semibold flex">Weather<IoPlanetSharp /></h1>
+        <h1 className="font-semibold flex  sm:text-3xl  xl:text-4xl ">Weather<IoPlanetSharp /></h1>
         <ul className="flex">
-          <li className="ml-[0.3em]"><input type="text" className="h-[2.3em] w-[12em] px-3 pt-3 pb-3 bg-gray-800 rounded-2xl focus:outline-none" placeholder="Enter city name" onChange={handleChange} value={value}/></li>
-          <li className="ml-[0.3em]"><button className="h-[2.3em] w-[5.3em] px-3 pl-2 pt-3 pb-3 flex justify-between items-center bg-white text-black rounded-2xl" onClick={handleClick}><IoSearchOutline className='text-3xl'/>Search</button></li>
-          <li className="ml-[0.3em]"><button className="h-[2.3em] w-[11em] px-0 py-3 flex justify-center items-center bg bg-orange-600 rounded-2xl" onClick={(event)=>{
+          <li className="ml-[0.3em]"><input type="text" className="sm:h-[2em] w-[12em] px-3 pt-3 pb-3 bg-gray-800 rounded-2xl focus:outline-none   xl:h-[2.3em]" placeholder="Enter city name" onChange={handleChange} value={value}/></li>
+          <li className="ml-[0.3em]"><button className="sm:h-[2em] w-[5.3em] px-3 pl-2 pt-3 pb-3 flex justify-between items-center bg-white text-black rounded-2xl   xl:h-[2.3em]" onClick={handleClick}><IoSearchOutline className='text-3xl'/>Search</button></li>
+          <li className="ml-[0.3em]"><button className="sm:h-[2em] w-[11em] px-0 py-3 flex justify-center items-center bg bg-orange-600 rounded-2xl   xl:h-[2.3em]" onClick={(event)=>{
             event.preventDefault();
             setCurLocBtn(true);
           }}><span className='mr-2'><FaLocationCrosshairs /></span>Current Location</button></li>

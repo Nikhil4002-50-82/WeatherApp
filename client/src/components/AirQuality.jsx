@@ -11,10 +11,10 @@ const AirQuality = () => {
 
   return (
     <div className='bg-gray-800  p-3 rounded-3xl'>
-        <h4 className=' text-md text-gray-400 mb-3 '>Air Quality Index</h4>
-        <div className='grid grid-cols-4 grid-rows-3'>
+        <h4 className='  sm:text-sm xl:text-md text-gray-400 mb-3 '>Air Quality Index</h4>
+        <div className='grid grid-cols-4 xl:grid-rows-3'>
             <div className='flex flex-col justify-center items-center '>
-                <MdOutlineAir className=' text-6xl ' />
+                <MdOutlineAir className=' sm:text-4xl xl:text-6xl ' />
             </div>
             {airQualityRes ?
             <>

@@ -25,7 +25,7 @@ const SunRiseAndSet = () => {
 
   return (
     <div className='h-full bg-gray-800 p-3 rounded-3xl'>
-      <h4 className=' text-md text-gray-400 mb-4 '>Sunrise & Sunset (IST)</h4>
+      <h4 className='text-gray-400   sm:mb-2 sm:text-sm   xl:mb-4 xl:text-md '>Sunrise & Sunset (IST)</h4>
       <div className='grid grid-cols-2'>
           <SunRiseAndSetComp name="Sunrise" meridiem="AM" Component={BsFillSunriseFill} time={sunRise}/>
           <SunRiseAndSetComp name="Sunset" meridiem="PM" Component={BsFillSunsetFill} time={sunSet}/>
