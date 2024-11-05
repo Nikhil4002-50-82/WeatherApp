@@ -2,6 +2,8 @@ import React,{useContext} from "react";
 import { CityContext } from "./context/cityContext";
 import { WeatherContext } from "./context/weatherContext";
 
+import MapComponent from "./MapComponent";
+
 import { BsCalendar2DateFill,BsCloudDrizzleFill,BsCloudHaze2Fill  } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoRainy,IoThunderstorm  } from "react-icons/io5";
@@ -60,7 +62,8 @@ export default function LeftGeneral(){
                 <span className="mr-1">{months[d.getMonth()]}</span>
                 <span className="mr-1">{d.getFullYear()}</span>
             </p>
-            <p className="text-gray-400 text-sm flex"><span><FaLocationDot className="text-lg mr-1" /></span>{cityName}</p>
+            <p className="text-gray-400 mb-3 text-sm flex"><span><FaLocationDot className="text-lg mr-1" /></span>{cityName}</p>
+            <MapComponent />
         </div>
     );
 }

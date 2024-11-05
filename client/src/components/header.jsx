@@ -3,6 +3,8 @@ import { CityContext } from './context/cityContext';
 import { AirQualityContext } from './context/airQualityContext';
 import { WeatherContext } from './context/weatherContext';
 import { ForecastContext } from './context/forecastContext';
+import { LatitudeContext } from './context/LatitudeContext';
+import { LongitudeContext } from './context/LongitudeContext';
 
 import { IoSearchOutline,IoPlanetSharp } from "react-icons/io5";
 import { FaLocationCrosshairs } from "react-icons/fa6";
@@ -21,13 +23,14 @@ const Header = () => {
     const {airQualityRes,setAirQualityRes}=useContext(AirQualityContext);
     const {weatherRes,setWeatherRes}=useContext(WeatherContext);
     const {forecastRes,setForecastRes}=useContext(ForecastContext);
+    const {lat,setLat}=useContext(LatitudeContext);
+    const {lon,setLon}=useContext(LongitudeContext);
 
     const [searchBtn,setSearchBtn]=useState(false);
     const [curLocBtn,setCurLocBtn]=useState(false);
 
     const [value,setValue]=useState("");
-    const [lat,setLat]=useState("");
-    const [lon,setLon]=useState("");
+    
 
     useEffect(()=>{
       const getLatLon=async()=>{
