@@ -1,7 +1,16 @@
 import React, { useContext, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet'; // Import Leaflet
 import { LatitudeContext } from './context/LatitudeContext';
 import { LongitudeContext } from './context/LongitudeContext';
+
+// Define the custom marker icon
+const customMarkerIcon = L.icon({
+  iconUrl: '/placeholder.png',
+  iconSize: [28, 32], // Size of the icon
+  iconAnchor: [12, 41], // Point of the icon which will correspond to marker's location
+  popupAnchor: [1, -34], // Point from which the popup should open relative to the iconAnchor
+});
 
 const ChangeView = ({ lat, lon }) => {
   const map = useMap();
@@ -24,8 +33,7 @@ const MapComponent = () => {
         url={mapTilerUrl}
         attribution='&copy; <a href="https://www.maptiler.com/copyright/">MapTiler</a> &copy; OpenStreetMap contributors'
       />
-      {/* Add Marker at the specified latitude and longitude */}
-      <Marker position={[lat, lon]}>
+      <Marker position={[lat, lon]} icon={customMarkerIcon}>
         <Popup>
           Latitude: {lat}, Longitude: {lon}
         </Popup>
