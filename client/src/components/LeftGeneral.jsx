@@ -25,7 +25,7 @@ export default function LeftGeneral(){
 
     var icon;
     if(iconName==="Rain"){
-         icon=<IoRainy className="mr-6 text-gray-400 text-xl  sm:text-3xl  xl:text-5xl" />;
+         icon=<IoRainy className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;
     }
     else if(iconName==="Thunderstorm"){
         icon=<IoThunderstorm className="mr-6 text-gray-400 text-4xl  sm:text-3xl  xl:text-5xl" />;

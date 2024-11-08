@@ -135,7 +135,7 @@ const Header = () => {
                 setValue("");
               }
             }
-          } /></li>
+          } spellCheck="false" /></li>
           <li className="ml-[0.3em]"><button className="h-[2.5em] sm:h-[2em] w-full sm:w-[5.3em] xl:w-[5.3em] px-3 pl-2 pt-3 pb-3 flex justify-center sm:justify-between xl:justify-between items-center bg-white text-black rounded-2xl   xl:h-[2.3em]" onClick={handleClick}><IoSearchOutline className='text-3xl'/>Search</button></li>
           <li className="ml-[0.3em]"><button className="h-[2.5em] sm:h-[2em] w-full sm:w-[11em] xl:w-[11em] px-0 py-3 flex justify-center items-center bg bg-orange-600 rounded-2xl   xl:h-[2.3em]" onClick={(event)=>{
             event.preventDefault();
